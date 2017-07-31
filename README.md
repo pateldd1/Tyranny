@@ -1,12 +1,12 @@
-##Tyranny Space Shooter
+## Tyranny Space Shooter
 
-###Background
+### Background
 
 * Tyranny is a space shooter game, drawing inspiration from Tyrian. It is an infinitely-long 1-player game in which the player shoots enemy ships and tries to survive as long as possible, receiving a high score at the end.
 
 Functionality & MVP:
 
-####Users will be able to:
+#### Users will be able to:
 
  * Start, pause, and reset the game (by pressing escape or pressing a pause button which leads to a menu to do these things)
  * Fire by pressing the spacebar or by holding down their left-mouse button.
