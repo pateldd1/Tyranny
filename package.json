@@ -18,12 +18,5 @@
   "bugs": {
     "url": "https://github.com/pateldd1/Tyranny/issues"
   },
-  "homepage": "https://github.com/pateldd1/Tyranny#readme",
-  "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
-  },
-  "scripts": {
-    "postinstall": "webpack"
-  }
+  "homepage": "https://github.com/pateldd1/Tyranny#readme"
 }
