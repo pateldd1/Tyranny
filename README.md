@@ -43,10 +43,9 @@ In addition, this project will include:
 
 #### This project will be implemented with the following technologies:
 
-* Vanilla JavaScript and (maybe jquery if absolutely necessary, probably not) for overall structure and game logic,
-* Easel.js with HTML5 Canvas for DOM manipulation and rendering,
+* Vanilla JavaScript for overall structure, game logic, and DOM Manipulation
+* HTML5 Canvas for rendering,
 * Webpack to bundle and serve up the various scripts.
-* This project will be done with vanilla javascript as much as possible.
 
 #### In addition to the webpack entry file, there will be three scripts involved in this project:
 
