@@ -1,0 +1,29 @@
+{
+  "name": "tyranny",
+  "version": "1.0.0",
+  "description": "### Background",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pateldd1/Tyranny.git"
+  },
+  "author": "devansh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pateldd1/Tyranny/issues"
+  },
+  "homepage": "https://github.com/pateldd1/Tyranny#readme",
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  "scripts": {
+    "postinstall": "webpack"
+  }
+}
