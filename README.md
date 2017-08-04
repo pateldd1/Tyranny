@@ -4,6 +4,8 @@
 
 * Tyranny is a space shooter game, drawing inspiration from Tyrian. It is an infinitely-long 1-player game in which the player shoots enemy ships and tries to survive as long as possible, receiving a high score at the end.
 
+![level1](/assets/leveldemo.gif)
+
 Functionality & MVP:
 
 #### Users will be able to:
@@ -19,6 +21,8 @@ Functionality & MVP:
  2. Ships that follow the user and fire (50 pts)
  3. ships that don't fire but just try to run into the user (10pts)
  4. Boss with AI implemented (1000 pts)
+
+ ![boss](/assets/boss.gif)
 
  * There will be a scrolling background that will move top to bottom, using CSS scrolling and javascript.
  * User will receive points for every ship they destroy with varying points by the type of ship, and by collecting coins.
