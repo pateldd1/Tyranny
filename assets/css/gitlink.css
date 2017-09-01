@@ -1,0 +1,7 @@
+.footer-nav {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	font-size: 24px !important;
+	margin-top: 7px !important;
+}
