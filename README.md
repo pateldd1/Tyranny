@@ -9,13 +9,13 @@ See Live Version Here: [https://pateldd1.github.io/Tyranny](https://pateldd1.git
 
 Functionality & MVP:
 
-#### Users will be able to:
+#### Users are able to:
 
- * Start, pause, and reset the game (by pressing escape or pressing a pause button which leads to a menu to do these things)
- * Fire by pressing the spacebar or by holding down their left-mouse button.
- * Move using the up, down, left, or right arrow keys or by moving their mouse around.
- * Collect power ups from within the game that allow them to have more damage with every shot they fire and a different type of bullet, more health (+), extra lives. They
- * Will have 3 lives before game over.
+ * Start, pause, and reset the game (by pressing escape or pressing the enter button to pause, and ,temporarily, they can do cmd+r or refresh the page to restart the game)
+ * Fire by pressing the spacebar
+ * Move using the up, down, left, or right arrow keys.
+ * Collect power ups from within the game that allow them to have more damage with every shot they fire and a different type of bullet, more health (+), extra lives.
+ * Will have 4 lives before game over.
 
  Enemy Types:
  1. Dumb ships that just fire and move from top to bottom without moving left or right. (20 pts)
