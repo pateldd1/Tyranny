@@ -18,35 +18,37 @@ Functionality & MVP:
  * Will have 4 lives before game over.
 
  Enemy Types:
- 1. Dumb ships that just fire and move from top to bottom without moving left or right. (20 pts)
- 2. Ships that follow the user and fire (50 pts)
- 3. ships that don't fire but just try to run into the user (10pts)
- 4. Boss with AI implemented (1000 pts)
+ 1. Large Laser Firing Ships. (Move at a different random vector every certain number of animation frames)
+ 2. Small fireball-firing ships. (Move at a different random vector every certain number of animation frames)
+ 3. Ships that fire rockets from two turrets. (Move at a different random vector every certain number of animation frames)
+ 4. Boss with AI implemented. (Moves at a vector that is relative to the vector that the user is moving (smart) for a certain
+ number of animation frames and moves at a random vector for a certain number of animation frames (dumb))
+
 
  ![boss](/assets/boss.gif)
 
- * There will be a scrolling background that will move top to bottom, using CSS scrolling and javascript.
- * User will receive points for every ship they destroy with varying points by the type of ship, and by collecting coins.
+ Power Ups (with spin animation):
+ 1. Extra Life
+ 2. More Health
+ 3. Stronger/Different Ammo
+
+ * User receives points for every ship they destroy with varying points by the type of ship.
  * Upgrades will render when you receive a certain number of points.
 
- Bullet Types:
- 1. fires straight and slowly. - default and after death
- 2. fires straight and rapidly. - after receiving 500 points.
- 3. fires in 3 directions. - after receiving 1000 points.
- 4. fires in 5 directions. - after receiving 2000 points.
+ User Bullet Types (weakest to strongest):
+ 1. Laser
+ 2. FireBall
+ 3. Missile
 
-In addition, this project will include:
+ Enemy Bullet Types (weakest to strongest):
+ 1. Small fireball
+ 2. Missile
+ 3. Blue Laser
 
-* A "contols" modal describing the controls and rules of the game
-* A production Readme
-
-### Wireframes
-
-* This app will consist of a single screen with game board, game controls, and nav links to the Github, my LinkedIn, and the "controls" modal. Wireframe is in the /docs/wireframes folder.
 
 ### Architecture and Technologies
 
-#### This project will be implemented with the following technologies:
+#### This project is implemented with the following technologies:
 
 * Vanilla JavaScript for overall structure, game logic, and DOM Manipulation
 * HTML5 Canvas for rendering,
@@ -54,65 +56,26 @@ In addition, this project will include:
 
 #### In addition to the webpack entry file, there will be three scripts involved in this project:
 
-1. background.js: this script will handle the logic for the background canvas and the scrolling of it, and determining all of the enemy objects that will be on the screen for the current frame.
+1. tyranny.js: This is the entry file that begins the JS rendering of the game within canvas.
 
-2. enemies.js: this file will contain all the enemy objects, their locations, widths, heights, and structural information. Maybe split into different folders for each enemy type.
+2. game_view.js: This file contains the 'requestAnimationFrame' javascript function that allows
+for a recursive call that allows the game to render frame by frame.
 
-3. player.js: this file will contain the player object, its movement, and animation, and will determine the different positions of the player based on animation frame.
+3. game.js: This file keeps track of the arrays of the ships, player ship, powerups, enemy ships, bullets,
+and all other moving objects. It's job is to iterate through this array, move each of these objects based on their individual vectors,
+which are subclasses of MovingObject within moving_object.js, animate whichever ones of these objects require an animation, check if any two objects have collided and deal with this collision, and draw the to result to the canvas.
 
-4. input.js: this file will be responsible for handling input from the player, such as mouseclicks, movements on on the mouse or keyboard, spacebar for firing, escape for pausing, etc.
+4. util.js: This file contains the physics for the game. The functions within this file create the vectors for each of the objects, using the norm and the scale function.
 
-5. animation.js: this file is responsible for determining position information about the player and the enemies depending on the animation frame.
+5. ship.js: this file is responsible for the actions of the player ship, animating the ship based on the animation frame, and firing bullets depending on the type of bullet the user currently has. It is also responsible for determining what happens when the ship collides with different objects, such as whether a ship collides with a powerup (obtain what the powerup contains) or an enemy (lose health).
 
-6. movement.js: this file will be responsible for updating the movement of all the entities on the page based on their positional data that is sent from animation.js.
+6. bullet.js: this file is responsible for keeping data about each moving bullet such as the image, the type, the width, and the height of the bullet.
 
-7. AI.js: this file will be responsible for figuring out where the enemies will be moving based on the location of the player on the screen if they require AI.
+7. powerup.js: this file is responsible for containing the actions for every moving powerup. The action called 'grabAnimation' will grab the current animation picture of the powerup, since these powerups are spinning.
 
-8. physics.js: this file will be used for detecting and handling the collisions such as when a player is hit by a bullet, when a player's bullet hits an enemy, when a player runs into an enemy, when a player collects
-coins or upgrades, etc. It will also manage sounds such as collecting coins, getting an upgrade, getting damaged by a bullet, or dying.
+8. moving_object.js: This is the superclass of all of the moving objects and contains the 'move' function, which is a function that, depending on the type of object, moves the object based on that object's vector, grabs the animation picture for that object if it is an animated object, and then changes the position of that object. It also contains the 'isCollidedWith' function which will determine if two objects have collided by seeing if the two boxes surrounding each object intersect each other.
 
-9. render.js: this file will be responsible for rendering the whole screen over again after all of the objects are updated.
-
-10. game.js: this file will be responsible for putting everything together, causing all the object updates, and re-rendering the screen.
-
-#### Implementation Timeline
-
-* Day 1: Setup all necessary Node modules, including getting webpack up and running and Easel.js installed. Create webpack.config.js as well as package.json. Write a basic entry file and the bare bones of all 3 scripts outlined above. Learn the basics of Easel.js. Goals for the day:
-
-* Get a green bundle with webpack
-* Learn enough Easel.js to render an object to the Canvas element
-* Find a background that is scrolling and get the background scrolling.
-* Find sounds
-* Get the spritesheet ready.
-* Make the player object.
-* Get a ship moving around on the screen. Start the input.js file, determining the currentState of the player based on input.
-* Figure out how to use Easel.js perfectly.
-* Figure out the data object that you will want to pass through each each object that will help to determine each objects positioning, movement, and animation.
-
-
-* Day 2:
-
-* Make All 4 types of enemy objects, including the boss.
-* Add to the input.js file that handles all of the other inputs, such as escape, etc. Do the animation.js file, handling the animation with easel.js.
-* Make the ship able to rotate left and right, and shoot. Make the ships rotate as well.
-* Maybe use a mod doing this in every 13 or so animation frames, reseting to 0 depending on the number of frames you have.
-* Handle the connection between user input and the current animation frame, such as pressing left and rotating left, etc.
-* Handle the physics of the movement, such as increasing the velocity to the left or to the right depending on if you press left or right or hover the mouse left or right.
-
-* Day 3:
-
-* Create all the objects that allow for powerups, make the score render on the page, make the coins
-* Figure out the logic of enemies firing at you
-* Figure out the logic of enemies that don't fire and where they will be rendered on the screen.
-* Figure out the logic of the boss and the AI that will be needed to create a difficult boss.
-* Render all of these things.
-
-
-* Day 4: Install the controls for the user to interact with the game. Style the frontend, making it polished and professional. Goals for the day:
-
-* Create controls for game speed, stop, start, reset, and shape type
-* Have a styled Canvas, nice looking controls and title
-* Polish everything and fix all the bugs.
+9. tyran.js: this file contains the enemy ships, the types of those ships, what kind of bullet each of those ships will be firing, and what the game should do if one of these ships were to collide with the user (lower user health) or with one of the user's bullets (lower its own health)
 
 #### Bonus features-
 
