@@ -5,7 +5,7 @@ See Live Version Here: [https://pateldd1.github.io/Tyranny](https://pateldd1.git
 
 * Tyranny is a space shooter game, drawing inspiration from Tyrian. It is an infinitely-long 1-player game in which the player shoots enemy ships and tries to survive as long as possible, receiving a high score at the end.
 
-![level1](/assets/leveldemo.gif)
+![level1](/assets/level_one.gif)
 
 Functionality & MVP:
 
@@ -25,7 +25,7 @@ Functionality & MVP:
  number of animation frames and moves at a random vector for a certain number of animation frames (dumb))
 
 
- ![boss](/assets/boss.gif)
+ ![boss](/assets/boss_level.gif)
 
  Power Ups (with spin animation):
  1. Extra Life
